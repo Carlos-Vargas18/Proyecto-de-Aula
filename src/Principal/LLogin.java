@@ -238,7 +238,7 @@ public class LLogin extends javax.swing.JFrame {
                     String cargo = rs.getString("cargo");
                     if (cargo.equalsIgnoreCase("Usuario")) {
 
-                new Principal().setVisible(true);
+                new principal().setVisible(true);
 
                     }
                 } else {
