@@ -1,7 +1,12 @@
-
-package packTurista;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
 
 import java.time.zone.ZoneOffsetTransitionRule;
+import Modelo.Turistas;
+
 
 
 public class Turistas {

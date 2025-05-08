@@ -1,5 +1,5 @@
 
-package Principal;
+package UI;
 
 
 import javax.swing.*;
@@ -73,7 +73,7 @@ public class principal extends JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo (1).jpg"))); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 160, 699, 100);
+        jLabel2.setBounds(10, 160, 0, 100);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,7 +93,7 @@ public class principal extends JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo2 (1).jpg"))); // NOI18N
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(10, 300, 700, 102);
+        jLabel4.setBounds(10, 300, 700, 0);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));

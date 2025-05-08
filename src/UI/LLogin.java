@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Principal;
+package UI;
 
-import Conexion.conex;
+import Datos.Registror;
+import Datos.conex;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.*;
 import com.sun.jdi.connect.spi.*;
