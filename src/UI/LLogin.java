@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -21,6 +21,17 @@ public class LLogin extends javax.swing.JFrame {
     Registror op = new Registror();
     conex con = new conex();
     Connection cn = (Connection) con.ConectarBd();
+    
+    public void limpiar() {
+    // Aquí debes limpiar tus campos de texto, por ejemplo:
+    tx_nombres.setText("");
+    tx_apellidos.setText("");
+    tx_email.setText("");
+    tx_nroDocumento.setText("");
+    tx_documento.setSelectedIndex(0);
+    tx_cargo.setSelectedIndex(0);
+    tx_contraseña.setText("");
+}
 
     /**
      * Creates new form Login
@@ -357,12 +368,5 @@ public class LLogin extends javax.swing.JFrame {
     private javax.swing.JTextField tx_nroDocumento;
     private javax.swing.JTextField tx_usuario;
     // End of variables declaration//GEN-END:variables
-void limpiar() {
-        tx_nombres.setText("");
-        tx_apellidos.setText("");
-        tx_documento.getSelectedItem().toString();
-        tx_nroDocumento.setText("");
-        tx_email.setText("");
-        tx_contraseña.setText("");
-    }
+
 }

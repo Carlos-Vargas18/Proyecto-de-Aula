@@ -4,11 +4,13 @@
  */
 package UI;
 
-import Modelo.Turistas;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
+import Modelo.ReservaTurista;
+
+
 
 
 /**
@@ -38,7 +40,7 @@ public class RegistroTurista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         TxTTurista = new javax.swing.JTextField();
         btnVaciarMasct = new javax.swing.JButton();
-        btnGuardarMasct = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -86,15 +88,15 @@ public class RegistroTurista extends javax.swing.JFrame {
         jPanel1.add(btnVaciarMasct);
         btnVaciarMasct.setBounds(190, 320, 72, 24);
 
-        btnGuardarMasct.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btnGuardarMasct.setText("Guardar");
-        btnGuardarMasct.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarMasctActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardarMasct);
-        btnGuardarMasct.setBounds(360, 320, 80, 24);
+        jPanel1.add(btnGuardar);
+        btnGuardar.setBounds(360, 320, 80, 24);
         jPanel1.add(jLabel6);
         jLabel6.setBounds(218, 347, 0, 0);
 
@@ -202,80 +204,83 @@ public class RegistroTurista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnVaciarMasctActionPerformed
 
-    private void btnGuardarMasctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMasctActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        Modelo turista = new Turistas();
-        turista.NombreT = TxTTurista.getText().trim();
-        turista.ApellidoT = TxTApellido.getText().trim();
-        turista.TID = COMBID.getSelectedItem().toString();
-        turista.IDTurista = txtIdenteficacion.getText().trim();
-        turista.TipoReser = TipoReser.getSelectedItem().toString();
-        turista.Reserva = Reserva.getText().trim();
-        turista.CheckIn = Checkin.getDate() != null ? Checkin.getDate().toString() : "";
-        turista.CheckOut = Checkout.getDate() != null ? Checkout.getDate().toString() : "";
-        turista.CantidadPersonas = txtCantidadPersonas.getText().trim();
+        ReservaTurista turista = new ReservaTurista();
+    turista.setNombreT(TxTTurista.getText().trim());
+    turista.setApellidoT(TxTApellido.getText().trim());
+    turista.setTID(COMBID.getSelectedItem().toString());
+    turista.setIDTurista(txtIdenteficacion.getText().trim());
+    turista.setTipoReser(TipoReser.getSelectedItem().toString());
+    turista.setReserva(Reserva.getText().trim());
+    turista.setCheckIn(Checkin.getDate() != null ? Checkin.getDate().toString() : "");
+    turista.setCheckOut(Checkout.getDate() != null ? Checkout.getDate().toString() : "");
+    turista.setCantidadPersonas(txtCantidadPersonas.getText().trim());
 
-        int validacion = 0;
+    int validacion = 0;
 
-        if (turista.NombreT.equals("")) validacion++;
-        if (turista.ApellidoT.equals("")) validacion++;
-        if (turista.TID.equals("")) validacion++;
-        if (turista.IDTurista.equals("")) validacion++;
-        if (turista.TipoReser.equals("")) validacion++;
-        if (turista.Reserva.equals("")) validacion++;
-        if (turista.CheckIn.equals("")) validacion++;
-        if (turista.CheckOut.equals("")) validacion++;
-        if (turista.CantidadPersonas.equals("")) validacion++;
+    if (turista.getNombreT().equals("")) validacion++;
+    if (turista.getApellidoT().equals("")) validacion++;
+    if (turista.getTID().equals("")) validacion++;
+    if (turista.getIDTurista().equals("")) validacion++;
+    if (turista.getTipoReser().equals("")) validacion++;
+    if (turista.getReserva().equals("")) validacion++;
+    if (turista.getCheckIn().equals("")) validacion++;
+    if (turista.getCheckOut().equals("")) validacion++;
+    if (turista.getCantidadPersonas().equals("")) validacion++;
 
-        // Validación de cantidad de personas
-        int cantidad = 0;
+    // Validación de cantidad de personas
+    int cantidad = 0;
+    try {
+        cantidad = Integer.parseInt(turista.getCantidadPersonas());
+        if (cantidad <= 0) validacion++;
+    } catch (NumberFormatException e) {
+        validacion++;
+    }
+
+    // Validar que el Check-Out no sea antes que el Check-In
+    if (!turista.getCheckIn().equals("") && !turista.getCheckOut().equals("")) {
         try {
-            cantidad = Integer.parseInt(turista.CantidadPersonas);
-            if (cantidad <= 0) validacion++;
-        } catch (NumberFormatException e) {
+            java.time.LocalDate checkInLocal = Checkin.getDate();
+            java.time.LocalDate checkOutLocal = Checkout.getDate();
+
+            java.util.Date inDate = java.sql.Date.valueOf(checkInLocal);
+            java.util.Date outDate = java.sql.Date.valueOf(checkOutLocal);
+
+
+            if (outDate.before(inDate)) {
+                JOptionPane.showMessageDialog(null, "La fecha de Check-Out no puede ser antes del Check-In.");
+                return;
+            }
+        } catch (Exception e) {
             validacion++;
         }
+    }
 
-        // Validar que el Check-Out no sea antes que el Check-In
-        if (!turista.CheckIn.equals("") && !turista.CheckOut.equals("")) {
-            try {
-                java.time.LocalDate checkInDate = Checkin.getDate();
-                java.time.LocalDate checkOutDate = Checkout.getDate();
-
-                if (checkOutDate.isBefore(checkInDate)) {
-                    JOptionPane.showMessageDialog(null, "La fecha de Check-Out no puede ser antes del Check-In.");
-                    return;
-                }
-            } catch (Exception e) {
-                validacion++;
-            }
+    if (validacion != 0) {
+        JOptionPane.showMessageDialog(null, "Se deben completar correctamente todos los campos.");
+    } else {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("Turistas.csv", true));
+            writer.printf("%s,%s,%s,%s,%s,%s,%s,%s,%s%n",
+                turista.getNombreT(),
+                turista.getApellidoT(),
+                turista.getTID(),
+                turista.getIDTurista(),
+                turista.getTipoReser(),
+                turista.getReserva(),
+                turista.getCheckIn(),
+                turista.getCheckOut(),
+                turista.getCantidadPersonas());
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Datos guardados correctamente.");
+            System.out.println("Turista registrado correctamente.");
+        } catch (IOException ex) {
+            System.err.println("Error al guardar los datos: " + ex.getMessage());
         }
+    }
 
-        if (validacion != 0) {
-            JOptionPane.showMessageDialog(null, "Se deben completar correctamente todos los campos.");
-        } else {
-            try {
-                PrintWriter writer = new PrintWriter(new FileWriter("Turistas.csv", true));
-                // Escribir los datos en formato CSV
-                writer.printf("%s,%s,%s,%s,%s,%s,%s,%s,%s%n",
-                    turista.NombreT,
-                    turista.ApellidoT,
-                    turista.TID,
-                    turista.IDTurista,
-                    turista.TipoReser,
-                    turista.Reserva,
-                    turista.CheckIn,
-                    turista.CheckOut,
-                    turista.CantidadPersonas);
-                writer.close();
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente.");
-                System.out.println("Turista registrado correctamente.");
-            } catch (IOException ex) {
-                System.err.println("Error al guardar los datos: " + ex.getMessage());
-            }
-        }
-
-    }//GEN-LAST:event_btnGuardarMasctActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void TxTApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxTApellidoActionPerformed
 
@@ -328,7 +333,7 @@ public class RegistroTurista extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TipoReser;
     private javax.swing.JTextField TxTApellido;
     private javax.swing.JTextField TxTTurista;
-    private javax.swing.JButton btnGuardarMasct;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVaciarMasct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

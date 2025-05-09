@@ -5,11 +5,11 @@
 package Modelo;
 
 import java.time.zone.ZoneOffsetTransitionRule;
-import Modelo.Turistas;
+import Modelo.ReservaTurista;
 
 
 
-public class Turistas {
+public class ReservaTurista {
  
     String NombreT;
     String ApellidoT;
@@ -23,11 +23,11 @@ public class Turistas {
     
     
     
-    public Turistas() {
+    public ReservaTurista() {
         
     }
     
-    public Turistas(String nombreT, String ApellidoT, String Tide,String IDT, String Reser, String Treser, String Checki, String Checko, String Cant ) {
+    public ReservaTurista(String nombreT, String ApellidoT, String Tide,String IDT, String Reser, String Treser, String Checki, String Checko, String Cant ) {
         this.NombreT = nombreT;
         this.ApellidoT = ApellidoT;
         this.TID = Tide;
