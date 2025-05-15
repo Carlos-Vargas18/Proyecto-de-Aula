@@ -38,30 +38,31 @@ public class principal extends JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Cartagena = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Barranquilla = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Bogota = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Historic", 0, 24)); // NOI18N
         jLabel7.setText("Seleccione La Ciudad Donde Desea Reservar su Hotel");
 
         jPanel2.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 0, 24)); // NOI18N
         jLabel1.setText("Cartagena\n");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(50, 200, 110, 26);
+        jLabel1.setBounds(300, 330, 130, 32);
 
-        Cartagena.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        Cartagena.setBackground(new java.awt.Color(0, 153, 255));
+        Cartagena.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Cartagena.setForeground(new java.awt.Color(255, 255, 255));
         Cartagena.setText("Ver Ahora");
         Cartagena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,19 +70,17 @@ public class principal extends JFrame {
             }
         });
         jPanel2.add(Cartagena);
-        Cartagena.setBounds(600, 200, 90, 24);
+        Cartagena.setBounds(300, 370, 110, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo (1).jpg"))); // NOI18N
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 160, 699, 100);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Historic", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Barranquilla");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(40, 340, 110, 26);
+        jLabel3.setBounds(520, 330, 160, 32);
 
-        Barranquilla.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        Barranquilla.setBackground(new java.awt.Color(0, 153, 255));
+        Barranquilla.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Barranquilla.setForeground(new java.awt.Color(255, 255, 255));
         Barranquilla.setText("Ver Ahora");
         Barranquilla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,19 +88,16 @@ public class principal extends JFrame {
             }
         });
         jPanel2.add(Barranquilla);
-        Barranquilla.setBounds(600, 340, 90, 24);
+        Barranquilla.setBounds(530, 370, 110, 30);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo2 (1).jpg"))); // NOI18N
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(10, 300, 700, 102);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bogota");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Historic", 0, 24)); // NOI18N
+        jLabel5.setText("Bogotá");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(40, 60, 70, 26);
+        jLabel5.setBounds(80, 330, 100, 40);
 
-        Bogota.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        Bogota.setBackground(new java.awt.Color(0, 153, 255));
+        Bogota.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Bogota.setForeground(new java.awt.Color(255, 255, 255));
         Bogota.setText("Ver Ahora");
         Bogota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,11 +105,20 @@ public class principal extends JFrame {
             }
         });
         jPanel2.add(Bogota);
-        Bogota.setBounds(600, 60, 90, 24);
+        Bogota.setBounds(70, 370, 110, 30);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo3 (1).jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/turismo-bogota_-reconocida-como-destino-de-negocios-lider-sudamerica.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(20, 0, 220, 320);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cartagena.jpg"))); // NOI18N
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 20, 700, 110);
+        jLabel6.setBounds(270, 0, 220, 320);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barranquilla.jpg"))); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(510, 0, 210, 320);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,12 +127,12 @@ public class principal extends JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel7)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,19 +140,19 @@ public class principal extends JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
